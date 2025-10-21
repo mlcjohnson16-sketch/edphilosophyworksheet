@@ -1,4 +1,399 @@
-<div class="question-block">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy of Education Self-Assessment</title>
+    <style>
+        /* --- CSS Styling --- */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+
+        ol {
+            margin-bottom: 20px;
+        }
+
+        .question-block {
+            background-color: #e9e9e9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .question-block p {
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        .options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .options label {
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button {
+            display: block;
+            width: 250px;
+            padding: 15px 20px;
+            background-color: #28a745; /* Green for Calculate */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 30px auto;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1e7e34;
+        }
+
+        .results-section {
+            background-color: #f0f8ff;
+            border: 1px solid #cceeff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            display: none; /* Hidden by default, shown by JS after calculation */
+        }
+
+        .results-section p {
+            margin: 5px 0;
+        }
+
+        .dominant-philosophy {
+            font-size: 1.4em;
+            color: #d9534f; /* Red for emphasis */
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .guidance, .submission-note {
+            font-style: italic;
+            color: #555;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Philosophy of Education Activity</h1>
+        <ol>
+            <li>Complete on-line worksheet</li>
+            <li>Define the philosophy you most closely identify with</li>
+            <li>Write a brief statement (approximately one page) of your philosophy of education.</li>
+        </ol>
+
+        <h2>Philosophy Inventory: Agree or Disagree</h2>
+        <p><strong>5 Agree strongly | 4 Agree | 3 Neutral | 2 Disagree | 1 Disagree Strongly</strong></p>
+
+        <form id="philosophyForm">
+            
+            <!-- --- QUESTION BLOCKS (1-40) --- -->
+            
+            <!-- Q1 (A: Essentialism) -->
+            <div class="question-block">
+                <p>1. The curriculum should be subject centered (reading, writing, history, math, science).</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="5" required> 5</label>
+                    <label><input type="radio" name="q1" value="4"> 4</label>
+                    <label><input type="radio" name="q1" value="3"> 3</label>
+                    <label><input type="radio" name="q1" value="2"> 2</label>
+                    <label><input type="radio" name="q1" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q2 (B: Perennialism) -->
+            <div class="question-block">
+                <p>2. The curriculum should focus on the great thinkers of the past.</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="5" required> 5</label>
+                    <label><input type="radio" name="q2" value="4"> 4</label>
+                    <label><input type="radio" name="q2" value="3"> 3</label>
+                    <label><input type="radio" name="q2" value="2"> 2</label>
+                    <label><input type="radio" name="q2" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q3 (C: Progressivism) -->
+            <div class="question-block">
+                <p>3. Many students learn best by engaging in real-world activities rather than reading.</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="5" required> 5</label>
+                    <label><input type="radio" name="q3" value="4"> 4</label>
+                    <label><input type="radio" name="q3" value="3"> 3</label>
+                    <label><input type="radio" name="q3" value="2"> 2</label>
+                    <label><input type="radio" name="q3" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q4 (D: Existentialism) -->
+            <div class="question-block">
+                <p>4. The students should be permitted to determine their own curriculum.</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="5" required> 5</label>
+                    <label><input type="radio" name="q4" value="4"> 4</label>
+                    <label><input type="radio" name="q4" value="3"> 3</label>
+                    <label><input type="radio" name="q4" value="2"> 2</label>
+                    <label><input type="radio" name="q4" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q5 (E: Behaviorism) -->
+            <div class="question-block">
+                <p>5. Material is taught effectively when it is broken down into small parts.</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="5" required> 5</label>
+                    <label><input type="radio" name="q5" value="4"> 4</label>
+                    <label><input type="radio" name="q5" value="3"> 3</label>
+                    <label><input type="radio" name="q5" value="2"> 2</label>
+                    <label><input type="radio" name="q5" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q6 (A: Essentialism) -->
+            <div class="question-block">
+                <p>6. The curriculum of a school should be determined by information that is essential for all students to know.</p>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="5" required> 5</label>
+                    <label><input type="radio" name="q6" value="4"> 4</label>
+                    <label><input type="radio" name="q6" value="3"> 3</label>
+                    <label><input type="radio" name="q6" value="2"> 2</label>
+                    <label><input type="radio" name="q6" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q7 (B: Perennialism) -->
+            <div class="question-block">
+                <p>7. Schools should develop students' abilities to think deeply, analytically, and creatively; this is more important than developing their social skills or providing them with a useful body of knowledge.</p>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="5" required> 5</label>
+                    <label><input type="radio" name="q7" value="4"> 4</label>
+                    <label><input type="radio" name="q7" value="3"> 3</label>
+                    <label><input type="radio" name="q7" value="2"> 2</label>
+                    <label><input type="radio" name="q7" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q8 (C: Progressivism) -->
+            <div class="question-block">
+                <p>8. Schools should prepare students for analyzing and solving the types of problems they will face outside the classroom.</p>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="5" required> 5</label>
+                    <label><input type="radio" name="q8" value="4"> 4</label>
+                    <label><input type="radio" name="q8" value="3"> 3</label>
+                    <label><input type="radio" name="q8" value="2"> 2</label>
+                    <label><input type="radio" name="q8" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q9 (D: Existentialism) -->
+            <div class="question-block">
+                <p>9. Reality is determined by each individual's perceptions. There is no objective and universal reality.</p>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="5" required> 5</label>
+                    <label><input type="radio" name="q9" value="4"> 4</label>
+                    <label><input type="radio" name="q9" value="3"> 3</label>
+                    <label><input type="radio" name="q9" value="2"> 2</label>
+                    <label><input type="radio" name="q9" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q10 (E: Behaviorism) -->
+            <div class="question-block">
+                <p>10. People are shaped much more by their environment than by their genetic dispositions or the exercise of their free will.</p>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="5" required> 5</label>
+                    <label><input type="radio" name="q10" value="4"> 4</label>
+                    <label><input type="radio" name="q10" value="3"> 3</label>
+                    <label><input type="radio" name="q10" value="2"> 2</label>
+                    <label><input type="radio" name="q10" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q11 (A: Essentialism) -->
+            <div class="question-block">
+                <p>11. Students should not be promoted from one grade to the next until they have read and mastered certain key material.</p>
+                <div class="options">
+                    <label><input type="radio" name="q11" value="5" required> 5</label>
+                    <label><input type="radio" name="q11" value="4"> 4</label>
+                    <label><input type="radio" name="q11" value="3"> 3</label>
+                    <label><input type="radio" name="q11" value="2"> 2</label>
+                    <label><input type="radio" name="q11" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q12 (B: Perennialism) -->
+            <div class="question-block">
+                <p>12. An effective education is not aimed at the immediate needs of the students or society.</p>
+                <div class="options">
+                    <label><input type="radio" name="q12" value="5" required> 5</label>
+                    <label><input type="radio" name="q12" value="4"> 4</label>
+                    <label><input type="radio" name="q12" value="3"> 3</label>
+                    <label><input type="radio" name="q12" value="2"> 2</label>
+                    <label><input type="radio" name="q12" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q13 (C: Progressivism) -->
+            <div class="question-block">
+                <p>13. The curriculum of a school should be built around the personal experiences and needs of the students.</p>
+                <div class="options">
+                    <label><input type="radio" name="q13" value="5" required> 5</label>
+                    <label><input type="radio" name="q13" value="4"> 4</label>
+                    <label><input type="radio" name="q13" value="3"> 3</label>
+                    <label><input type="radio" name="q13" value="2"> 2</label>
+                    <label><input type="radio" name="q13" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q14 (D: Existentialism) -->
+            <div class="question-block">
+                <p>14. Students who do not want to study much should not be required to do so.</p>
+                <div class="options">
+                    <label><input type="radio" name="q14" value="5" required> 5</label>
+                    <label><input type="radio" name="q14" value="4"> 4</label>
+                    <label><input type="radio" name="q14" value="3"> 3</label>
+                    <label><input type="radio" name="q14" value="2"> 2</label>
+                    <label><input type="radio" name="q14" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q15 (E: Behaviorism) -->
+            <div class="question-block">
+                <p>15. Programmed learning is an effective method of teaching information.</p>
+                <div class="options">
+                    <label><input type="radio" name="q15" value="5" required> 5</label>
+                    <label><input type="radio" name="q15" value="4"> 4</label>
+                    <label><input type="radio" name="q15" value="3"> 3</label>
+                    <label><input type="radio" name="q15" value="2"> 2</label>
+                    <label><input type="radio" name="q15" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q16 (A: Essentialism) -->
+            <div class="question-block">
+                <p>16. Academic rigor is an essential component of education.</p>
+                <div class="options">
+                    <label><input type="radio" name="q16" value="5" required> 5</label>
+                    <label><input type="radio" name="q16" value="4"> 4</label>
+                    <label><input type="radio" name="q16" value="3"> 3</label>
+                    <label><input type="radio" name="q16" value="2"> 2</label>
+                    <label><input type="radio" name="q16" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q17 (B: Perennialism) -->
+            <div class="question-block">
+                <p>17. All students, regardless of ability, should study more or less the same curriculum.</p>
+                <div class="options">
+                    <label><input type="radio" name="q17" value="5" required> 5</label>
+                    <label><input type="radio" name="q17" value="4"> 4</label>
+                    <label><input type="radio" name="q17" value="3"> 3</label>
+                    <label><input type="radio" name="q17" value="2"> 2</label>
+                    <label><input type="radio" name="q17" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q18 (C: Progressivism) -->
+            <div class="question-block">
+                <p>18. Art classes should focus primarily on individual expression and creativity.</p>
+                <div class="options">
+                    <label><input type="radio" name="q18" value="5" required> 5</label>
+                    <label><input type="radio" name="q18" value="4"> 4</label>
+                    <label><input type="radio" name="q18" value="3"> 3</label>
+                    <label><input type="radio" name="q18" value="2"> 2</label>
+                    <label><input type="radio" name="q18" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q19 (D: Existentialism) -->
+            <div class="question-block">
+                <p>19. Effective learning is unstructured and informal.</p>
+                <div class="options">
+                    <label><input type="radio" name="q19" value="5" required> 5</label>
+                    <label><input type="radio" name="q19" value="4"> 4</label>
+                    <label><input type="radio" name="q19" value="3"> 3</label>
+                    <label><input type="radio" name="q19" value="2"> 2</label>
+                    <label><input type="radio" name="q19" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q20 (E: Behaviorism) -->
+            <div class="question-block">
+                <p>20. Students learn best through reinforcement.</p>
+                <div class="options">
+                    <label><input type="radio" name="q20" value="5" required> 5</label>
+                    <label><input type="radio" name="q20" value="4"> 4</label>
+                    <label><input type="radio" name="q20" value="3"> 3</label>
+                    <label><input type="radio" name="q20" value="2"> 2</label>
+                    <label><input type="radio" name="q20" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q21 (A: Essentialism) -->
+            <div class="question-block">
+                <p>21. Effective schools assign a substantial amount of homework.</p>
+                <div class="options">
+                    <label><input type="radio" name="q21" value="5" required> 5</label>
+                    <label><input type="radio" name="q21" value="4"> 4</label>
+                    <label><input type="radio" name="q21" value="3"> 3</label>
+                    <label><input type="radio" name="q21" value="2"> 2</label>
+                    <label><input type="radio" name="q21" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q22 (B: Perennialism) -->
+            <div class="question-block">
+                <p>22. Education should focus on the discussion of timeless questions such as "What is beauty?" or "What is truth?"</p>
+                <div class="options">
+                    <label><input type="radio" name="q22" value="5" required> 5</label>
+                    <label><input type="radio" name="q22" value="4"> 4</label>
+                    <label><input type="radio" name="q22" value="3"> 3</label>
+                    <label><input type="radio" name="q22" value="2"> 2</label>
+                    <label><input type="radio" name="q22" value="1"> 1</label>
+                </div>
+            </div>
+
+            <!-- Q23 (C: Progressivism) -->
+            <div class="question-block">
                 <p>23. Since students learn effectively through social interaction, schools should plan for substantial social interaction in their curricula.</p>
                 <div class="options">
                     <label><input type="radio" name="q23" value="5" required> 5</label>
@@ -9,6 +404,7 @@
                 </div>
             </div>
 
+            <!-- Q24 (D: Existentialism) -->
             <div class="question-block">
                 <p>24. The purpose of school is to help students understand and find the meaning of their existence.</p>
                 <div class="options">
@@ -20,6 +416,7 @@
                 </div>
             </div>
 
+            <!-- Q25 (E: Behaviorism) -->
             <div class="question-block">
                 <p>25. Frequent objective testing is the best way to determine what students know.</p>
                 <div class="options">
@@ -31,6 +428,7 @@
                 </div>
             </div>
 
+            <!-- Q26 (A: Essentialism) -->
             <div class="question-block">
                 <p>26. America must become more competitive economically, and schools have an affirmative obligation to bolster their academic requirements to facilitate such competition.</p>
                 <div class="options">
@@ -42,6 +440,7 @@
                 </div>
             </div>
 
+            <!-- Q27 (B: Perennialism) -->
             <div class="question-block">
                 <p>27. Students must be taught to appreciate learning primarily for its own sake, rather than because it will help them in their careers.</p>
                 <div class="options">
@@ -53,6 +452,7 @@
                 </div>
             </div>
 
+            <!-- Q28 (C: Progressivism) -->
             <div class="question-block">
                 <p>28. Schools must place more emphasis on teaching about the concerns of minorities and women.</p>
                 <div class="options">
@@ -64,6 +464,7 @@
                 </div>
             </div>
 
+            <!-- Q29 (D: Existentialism) -->
             <div class="question-block">
                 <p>29. Each person has free will to develop as he or she sees fit.</p>
                 <div class="options">
@@ -75,6 +476,7 @@
                 </div>
             </div>
 
+            <!-- Q30 (E: Behaviorism) -->
             <div class="question-block">
                 <p>30. Reward students well for learning and they will remember and be able to apply what they learned.</p>
                 <div class="options">
@@ -86,6 +488,7 @@
                 </div>
             </div>
 
+            <!-- Q31 (A: Essentialism) -->
             <div class="question-block">
                 <p>31. American schools should attempt to instill traditional American values in students.</p>
                 <div class="options">
@@ -97,6 +500,7 @@
                 </div>
             </div>
 
+            <!-- Q32 (B: Perennialism) -->
             <div class="question-block">
                 <p>32. Teacher-guided discovery of profound truths is a key method of teaching students.</p>
                 <div class="options">
@@ -108,6 +512,7 @@
                 </div>
             </div>
 
+            <!-- Q33 (C: Progressivism) -->
             <div class="question-block">
                 <p>33. Students should be active participants in the learning process.</p>
                 <div class="options">
@@ -119,6 +524,7 @@
                 </div>
             </div>
 
+            <!-- Q34 (D: Existentialism) -->
             <div class="question-block">
                 <p>34. There are no external standards of beauty. Beauty is what an individual decides it to be.</p>
                 <div class="options">
@@ -130,6 +536,7 @@
                 </div>
             </div>
 
+            <!-- Q35 (E: Behaviorism) -->
             <div class="question-block">
                 <p>35. We can place a lot of faith in our schools and teachers to determine which student behaviors are acceptable and which are not.</p>
                 <div class="options">
@@ -141,6 +548,7 @@
                 </div>
             </div>
 
+            <!-- Q36 (A: Essentialism) -->
             <div class="question-block">
                 <p>36. Schools must provide students with a firm grasp of basic facts regarding the books, people, and events that have shaped the American heritage.</p>
                 <div class="options">
@@ -152,6 +560,7 @@
                 </div>
             </div>
 
+            <!-- Q37 (B: Perennialism) -->
             <div class="question-block">
                 <p>37. Philosophy is ultimately at least as practical a subject to study as is computer science.</p>
                 <div class="options">
@@ -163,6 +572,7 @@
                 </div>
             </div>
 
+            <!-- Q38 (C: Progressivism) -->
             <div class="question-block">
                 <p>38. Teachers must stress for students the relevance of what they are learning to their lives outside, as well as inside, the classroom.</p>
                 <div class="options">
@@ -174,6 +584,7 @@
                 </div>
             </div>
 
+            <!-- Q39 (D: Existentialism) -->
             <div class="question-block">
                 <p>39. It is more important for a student to develop a positive self-concept than to learn specific subject matter.</p>
                 <div class="options">
@@ -185,6 +596,7 @@
                 </div>
             </div>
 
+            <!-- Q40 (E: Behaviorism) -->
             <div class="question-block">
                 <p>40. Learning is more effective when students are given frequent tests to determine what they have learned.</p>
                 <div class="options">
@@ -195,6 +607,7 @@
                     <label><input type="radio" name="q40" value="1"> 1</label>
                 </div>
             </div>
+
 
             <button type="button" id="calculateBtn">Calculate My Philosophy</button>
         </form>
@@ -216,3 +629,102 @@
             <p class="submission-note">You will need to **copy and paste these written responses** into your learning management system (Canvas, Google Classroom, etc.) for final submission.</p>
         </div>
     </div>
+
+    <script>
+        // --- JavaScript Logic ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const calculateBtn = document.getElementById('calculateBtn');
+            const resultsSection = document.getElementById('results');
+
+            // Span elements for displaying scores
+            const scoreSpans = {
+                A: document.getElementById('essentialismScore'),
+                B: document.getElementById('perennialismScore'),
+                C: document.getElementById('progressivismScore'),
+                D: document.getElementById('existentialismScore'),
+                E: document.getElementById('behaviorismScore')
+            };
+            const dominantPhilosophySpan = document.getElementById('dominantPhilosophy');
+
+            // Map of Question Number to Philosophy (A=Essentialism, B=Perennialism, C=Progressivism, D=Existentialism, E=Behaviorism)
+            const questionPhilosophyMap = {
+                1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E',
+                6: 'A', 7: 'B', 8: 'C', 9: 'D', 10: 'E',
+                11: 'A', 12: 'B', 13: 'C', 14: 'D', 15: 'E',
+                16: 'A', 17: 'B', 18: 'C', 19: 'D', 20: 'E',
+                21: 'A', 22: 'B', 23: 'C', 24: 'D', 25: 'E',
+                26: 'A', 27: 'B', 28: 'C', 29: 'D', 30: 'E',
+                31: 'A', 32: 'B', 33: 'C', 34: 'D', 35: 'E',
+                36: 'A', 37: 'B', 38: 'C', 39: 'D', 40: 'E'
+            };
+
+            const philosophyNames = {
+                A: 'Essentialism', B: 'Perennialism', C: 'Progressivism', D: 'Existentialism', E: 'Behaviorism'
+            };
+
+            calculateBtn.addEventListener('click', () => {
+                const scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+                const totalQuestions = 40; 
+
+                let allAnswered = true;
+                for (let i = 1; i <= totalQuestions; i++) {
+                    const selector = `input[name="q${i}"]:checked`;
+                    const selectedOption = document.querySelector(selector);
+
+                    if (selectedOption) {
+                        const value = parseInt(selectedOption.value, 10);
+                        const philosophy = questionPhilosophyMap[i];
+                        if (philosophy) {
+                            scores[philosophy] += value;
+                        }
+                    } else {
+                        // If any question is not answered, flag it and stop
+                        allAnswered = false;
+                        break;
+                    }
+                }
+
+                if (!allAnswered) {
+                    // Use a simple alert since this is running in an iframe, or you could add a visible error message div.
+                    alert('Please answer all 40 questions before calculating your scores.');
+                    return;
+                }
+
+                // Display individual scores
+                scoreSpans.A.textContent = scores.A;
+                scoreSpans.B.textContent = scores.B;
+                scoreSpans.C.textContent = scores.C;
+                scoreSpans.D.textContent = scores.D;
+                scoreSpans.E.textContent = scores.E;
+
+                // Determine dominant philosophy
+                let maxScore = -1;
+                let dominant = 'N/A';
+                let tiedPhilosophies = [];
+
+                for (const [key, score] of Object.entries(scores)) {
+                    if (score > maxScore) {
+                        maxScore = score;
+                        dominant = philosophyNames[key];
+                        tiedPhilosophies = [dominant];
+                    } else if (score === maxScore && score > 0) {
+                        tiedPhilosophies.push(philosophyNames[key]);
+                    }
+                }
+
+                if (tiedPhilosophies.length > 1) {
+                    dominantPhilosophySpan.textContent = tiedPhilosophies.join(' and ');
+                } else {
+                    dominantPhilosophySpan.textContent = dominant;
+                }
+
+                // Show the results section
+                resultsSection.style.display = 'block';
+
+                // Scroll to results for better UX
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
